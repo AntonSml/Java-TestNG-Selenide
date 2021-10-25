@@ -6,8 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Java-TestNG-Selenide" />
         <module name="swagger-petshop-test" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Java-TestNG-Selenide" target="10" />
+    </bytecodeTargetLevel>
   </component>
 </project>
