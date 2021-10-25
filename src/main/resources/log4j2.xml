@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration packages="core.reporter" status="WARN">
+
+    <Properties>
+        <Property name="CONSOLE_PATTERN">%d{HH:mm:ss.SSS} %highlight{%-5level}{WARN=bright yellow, INFO=blue, DEBUG=white, TRACE=white, TESTPASSED=bright green reverse, TESTFAILED=bright red reverse} %highlight{%msg}{WARN=bright yellow, INFO=normal, DEBUG=white, TRACE=white, TESTPASSED=normal, TESTFAILED=normal} %style{[%c{2}:%L]}{white}%n</Property>
+        <Property name="TESTNG_PATTERN">%d{HH:mm:ss.SSS} %testnglevel %replace{%encode{%msg}}{\\r\\n|\\n}{&lt;BR&gt;} [%c{2}:%L]%n</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${CONSOLE_PATTERN}" disableAnsi="false"/>
+        </Console>
+        <TestNGAppender name="TestNGAppender">
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${TESTNG_PATTERN}" disableAnsi="true"/>
+        </TestNGAppender>
+    </Appenders>
+
+    <TestNGLayout/>
+
+    <Loggers>
+        <Root additivity="false" level="debug"> <!-- change to debug or info to decrease verbosity -->
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="TestNGAppender"/>
+        </Root>
+        <logger additivity="false" level="off" name="org.apache.commons.httpclient"/>
+        <logger additivity="false" level="off" name="httpclient.wire"/>
+        <logger additivity="false" level="off" name="org.apache.http"/>
+        <logger additivity="false" level="off" name="org.apache.http.headers"/>
+        <logger additivity="false" level="off" name="org.apache.http.wire"/>
+    </Loggers>
+
+</Configuration>
