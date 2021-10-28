@@ -45,9 +45,7 @@ public class TestManager {
     private Map<String, WebDriver> webDrivers = new HashMap<>();
     private String currentWebDriver;
     private Browser browser = CHROME;
-    public static final boolean HEADLESS = true;
 
-    //region Basics
 
     /**
      * Instantiates a new TestManager with test parameters
@@ -77,21 +75,6 @@ public class TestManager {
         return this;
     }
 
-    public TestManager configure(Boolean headless) {
-        if (headless) browser = CHROME_HEADLESS;
-        return configure();
-    }
-
-    /**
-     * returns parameter mentioned in suite xml or null
-     *
-     * @param key - string value for parameter key
-     * @return parameter value
-     */
-    public String getTestParameter(String key) {
-        return testContext.getCurrentXmlTest().getParameter(key);
-    }
-
     /**
      * Get instance of test manager from other objects and reporter with no access to testmanager variable.
      *
@@ -104,20 +87,6 @@ public class TestManager {
         }
         return (TestManager) testContext.getAttribute("manager");
     }
-
-    /**
-     * Get the class name of the test that is running now
-     *
-     * @return
-     */
-    public String getActualTestName() {
-        for (StackTraceElement o : new Exception().getStackTrace()) {
-            if (!o.toString().startsWith("core") && !o.toString().startsWith("pages") && !o.toString().startsWith("data") && !o.toString().startsWith("reporter"))
-                return o.getFileName().split("\\.")[0];
-        }
-        return null;
-    }
-
 
     private void readBrowserOverride() {
         // Browser override by env var
@@ -247,15 +216,6 @@ public class TestManager {
      */
     public String getStartUrl() {
         return url;
-    }
-
-    /**
-     * Gets url from the browser's address line.
-     *
-     * @return the current url
-     */
-    public String getCurrentUrl() {
-        return url();
     }
 
     public Browser getBrowser() {
