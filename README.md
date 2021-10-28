@@ -21,6 +21,10 @@ To generate a report, use command:
 
     Allure serve
 
+### To run test with Chrome browser, use 95+ version.
+
 ### Allure reporting
 ### About Allure reporter information could be found [here.](https://docs.qameta.io/allure/#_about)
+
+
 
