@@ -120,7 +120,8 @@ public class PetStorePage extends BasePage {
         return this;
     }
 
-    public PetStorePage checkId() {
+    public PetStorePage checkId() throws InterruptedException {
+        Thread.sleep(2000);
         checkNewIDExist();
         return this;
     }

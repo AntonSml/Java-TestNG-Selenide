@@ -17,7 +17,7 @@ public class PetStoreSwagger_Test extends BaseTest {
     }
 
     @Test(priority = 1)
-    public void addNewPetTest() {
+    public void addNewPetTest() throws InterruptedException {
         petStorePage
                 .openUrl()
                 .addTestData()

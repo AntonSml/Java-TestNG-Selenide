@@ -11,8 +11,5 @@
         <module name="framework" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Java-TestNG-Selenide" target="10" />
-    </bytecodeTargetLevel>
   </component>
 </project>
