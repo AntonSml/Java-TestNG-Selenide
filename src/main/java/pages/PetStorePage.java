@@ -34,7 +34,7 @@ public class PetStorePage extends BasePage {
 
     private final String url = manager.getStartUrl();
 
-    private int id;
+    private final int id;
     private int invalid_id;
     private String photoURL;
     private String name;
